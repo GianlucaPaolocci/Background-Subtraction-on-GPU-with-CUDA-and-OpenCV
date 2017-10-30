@@ -171,7 +171,7 @@ __global__ void calculateDiscr(gpu::PtrStepSz<uchar>in_device, gpu::PtrStepSz<uc
     //scorro lista per calcolare il giusto discriminatore per ogni pixel
     for(int k=0; k<buff_size; k++)
     {
-        // il discrminatore é dato dalla media dei valori RGB del pixel
+        // il discrminatore Ã© dato dalla media dei valori RGB del pixel
         arrR[k]=buffer_device.ptr(y+k*in_device.rows)[x*3+2];
         arrG[k]=buffer_device.ptr(y+k*in_device.rows)[x*3+1];
         arrB[k]=buffer_device.ptr(y+k*in_device.rows)[x*3];
@@ -217,7 +217,7 @@ __global__ void changeDetection(gpu::PtrStepSz<uchar>in_device, gpu::PtrStepSz<u
                 //scorro lista per calcolare il giusto discriminatore per ogni pixel
                 for(int k=0; k<buff_size; k++)
                 {
-                    // il discrminatore é dato dalla media dei valori RGB del pixel
+                    // il discrminatore Ã© dato dalla media dei valori RGB del pixel
                     arrR[k]=buffer_device.ptr(y+k*in_device.rows)[x*3+2];
                     arrG[k]=buffer_device.ptr(y+k*in_device.rows)[x*3+1];
                     arrB[k]=buffer_device.ptr(y+k*in_device.rows)[x*3];
