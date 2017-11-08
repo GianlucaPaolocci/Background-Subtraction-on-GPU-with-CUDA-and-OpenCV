@@ -26,7 +26,7 @@ int main( int argc, char** argv )
     cudaEvent_t start, stop;
     float time;
     Mat img;
-    VideoCapture cap("/home/C141/progetto/Test/cars/test.mov");
+    VideoCapture cap(argv[1]);
     if ( !cap.isOpened() )
     {
         cout << "Cannot open the video" << endl;
@@ -45,14 +45,14 @@ int main( int argc, char** argv )
     int N = s.height/scale;
     int M = s.width/scale;
     cout<<"Dimensioni elaborazione "<<M<<" x "<<N<<endl;
-    VideoWriter oVW ("/home/C141/progetto/Test/cars/output.avi", CV_FOURCC('D','I','V','X'), 30, Size(M,N), false); //inizializza oggetto VideoWriter
+    VideoWriter oVW (argv[1]+"_output.avi", CV_FOURCC('D','I','V','X'), 30, Size(M,N), false); //inizializza oggetto VideoWriter
     if ( !oVW.isOpened() ) //if not initialize the VideoWriter successfully, exit the program
     {
         cout << "ERROR: Failed to write the video" << endl;
         return -1;
     }
 	
-	VideoWriter bVW ("/home/C141/progetto/Test/cars/backgorund.avi", CV_FOURCC('D','I','V','X'), 30, Size(M,N), false); //inizializza oggetto VideoWriter
+	VideoWriter bVW (argv[1]+"_background.avi", CV_FOURCC('D','I','V','X'), 30, Size(M,N), false); //inizializza oggetto VideoWriter
 	if ( !bVW.isOpened() ) //if not initialize the VideoWriter successfully, exit the program
     {
         cout << "ERROR: Failed to write the video" << endl;
